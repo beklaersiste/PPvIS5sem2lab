@@ -5,7 +5,6 @@
             text: "Новый профиль"
             pos_hint: {"center_x": .5, "center_y": .6}
             on_release: root.current = "new"
-            #md_bg_color: "red"
         MDRaisedButton:
             text: "Загрузить профиль"
             pos_hint: {"center_x": .5, "center_y": .5}
@@ -20,16 +19,44 @@
         MDLabel:
             text: "Введите:"
             halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .9}
+        MDTextField:
+            id: name
+            mode: "rectangle"
+            size_hint: .5, None
+            pos_hint: {"center_x": .5, "center_y": .8}
+            hint_text: "Имя пользователя"
+        MDTextField:
+            id: money
+            mode: "rectangle"
+            size_hint: .5, None
+            pos_hint: {"center_x": .5, "center_y": .65}
+            hint_text: "Количество денег"
+        MDTextField:
+            id: login
+            mode: "rectangle"
+            size_hint: .5, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            hint_text: "Логин"
+        MDTextField:
+            id: password
+            mode: "rectangle"
+            size_hint: .5, None
+            pos_hint: {"center_x": .5, "center_y": .35}
+            hint_text: "Пароль"
         MDRaisedButton:
             text: "Готово"
             pos_hint: {"center_x": .5, "center_y": .2}
-            on_release: root.current = "main"
+            on_release:
+                app.newProfile()
+                root.current = "main"
 
     Screen:
         name: "download"
         MDLabel:
             text: "Профили:"
             halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .9}
         MDRaisedButton:
             text: "Загрузить"
             pos_hint: {"center_x": .7, "center_y": .2}
@@ -52,17 +79,32 @@
             text: "Выход"
             pos_hint: {"center_x": .7, "center_y": .4}
             on_release: root.current = "start"
-        MDRaisedButton:
-            text: "Стадион1"
-            pos_hint: {"center_x": .3, "center_y": .6}
+        MDSmartTile:
+            radius: 24
+            box_radius: [0, 0, 24, 24]
+            box_color: 1, 1, 1, .2
+            source: "view/images/stadium1.png"
+            pos_hint: {"center_x": .3, "center_y": .8}
+            size_hint: .3, .3
+            size: "1454dp", "950dp"
             on_release: root.current = "stadium"
-        MDRaisedButton:
-            text: "Стадион2"
+        MDSmartTile:
+            radius: 24
+            box_radius: [0, 0, 24, 24]
+            box_color: 1, 1, 1, .2
+            source: "view/images/stadium2.png"
             pos_hint: {"center_x": .3, "center_y": .5}
+            size_hint: .3, .3
+            size: "1491dp", "884dp"
             on_release: root.current = "stadium"
-        MDRaisedButton:
-            text: "Стадион3"
-            pos_hint: {"center_x": .3, "center_y": .4}
+        MDSmartTile:
+            radius: 24
+            box_radius: [0, 0, 24, 24]
+            box_color: 1, 1, 1, .2
+            source: "view/images/stadium3.png"
+            pos_hint: {"center_x": .3, "center_y": .2}
+            size_hint: .3, .3
+            size: "1540dp", "769dp"
             on_release: root.current = "stadium"
 
     Screen:
@@ -87,24 +129,29 @@
 
     Screen:
         name: "stadium"
-        MDLabel:
-            text: "Стадион"
-            halign: "center"
+        MDSmartTile:
+            radius: 24
+            box_radius: [0, 0, 24, 24]
+            box_color: 1, 1, 1, .2
+            source: "view/images/stadium.png"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: .6, .6
+            size: "1123dp", "715dp"
         MDRaisedButton:
             text: "Свободные места"
-            pos_hint: {"center_x": .2, "center_y": .7}
+            pos_hint: {"center_x": .1, "center_y": .7}
             on_release: root.current = "places"
         MDRaisedButton:
             text: "Занять место"
-            pos_hint: {"center_x": .2, "center_y": .6}
+            pos_hint: {"center_x": .1, "center_y": .6}
             #on_release: root.current = "screen1"
         MDRaisedButton:
             text: "Магазин"
-            pos_hint: {"center_x": .2, "center_y": .5}
+            pos_hint: {"center_x": .1, "center_y": .5}
             on_release: root.current = "shop"
         MDRectangleFlatButton:
             text: "Уйти"
-            pos_hint: {"center_x": .2, "center_y": .3}
+            pos_hint: {"center_x": .1, "center_y": .3}
             on_release: root.current = "main"
 
     Screen:
@@ -112,6 +159,32 @@
         MDLabel:
             text: "Свободные места"
             halign: "center"
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDLabel:
+                    text: 'Билет 1'
+                MDLabel:
+                    text: 'Билет 2'
+                MDLabel:
+                    text: 'Билет 3'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDLabel:
+                    text: 'Билет 4'
+                MDLabel:
+                    text: 'Билет 5'
+                MDLabel:
+                    text: 'Билет 6'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDLabel:
+                    text: 'Билет 7'
+                MDLabel:
+                    text: 'Билет 8'
+                MDLabel:
+                    text: 'Билет 9'
         MDRaisedButton:
             text: "Купить"
             pos_hint: {"center_x": .6, "center_y": .3}

@@ -6,8 +6,8 @@ from controller.controller import Controller
 class Main:
     def __init__(self):
         self.model = Model()
-        self.controller = Controller()
-        self.view = View()
+        self.controller = Controller(self.model)
+        self.view = View(self.controller)
 
     def build(self):
         self.view.run()
